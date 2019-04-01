@@ -9,7 +9,7 @@ const GAME_TYPES = [INITIAL_GAME_TYPE, 'V65', 'V64', 'V4'];
 class App extends Component {
   constructor() {
     super();
-    this.state = { games: [] };
+    this.state = { races: [] };
   }
 
   componentWillMount() {
@@ -38,7 +38,7 @@ class App extends Component {
       .then(game => games.push(game)));
 
     Promise.all(promises)
-      .finally(() => this.setState({ games: games }));
+      .finally(() => this.setState({ races: games.flatMap(game => game.races) }));
   }
 
   handleChange = e => {
@@ -49,7 +49,7 @@ class App extends Component {
     return (
       <>
         <Dropdown handleChange={this.handleChange} values={GAME_TYPES} />
-        <Races races={this.state.games.flatMap(game => game.races)} />
+        <Races races={this.state.races} />
       </>
     );
   }
