@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Starts from './Starts';
+import PropTypes from 'prop-types';
 
 class Race extends Component {
     constructor() {
@@ -24,5 +25,30 @@ class Race extends Component {
         );
     }
 }
+
+Race.propTypes = {
+    raceNumber: PropTypes.number,
+    raceName: PropTypes.string,
+    startTime: PropTypes.string,
+    starts: PropTypes.arrayOf(PropTypes.shape({
+        number: PropTypes.number,
+        horse: PropTypes.shape({
+            name: PropTypes.string,
+            trainer: PropTypes.shape({
+                firstName: PropTypes.string,
+                lastName: PropTypes.string
+            }),
+            pedigree: PropTypes.shape({
+                father: PropTypes.shape({
+                    name: PropTypes.string
+                })
+            })
+        }),
+        driver: PropTypes.shape({
+            firstName: PropTypes.string,
+            lastName: PropTypes.string
+        })
+    })).isRequired
+};
 
 export default Race;

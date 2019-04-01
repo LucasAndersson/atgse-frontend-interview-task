@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Start extends Component {
     constructor() {
@@ -35,5 +36,13 @@ class Start extends Component {
         );
     }
 }
+
+Start.propTypes = {
+    startNumber: PropTypes.number,
+    horseName: PropTypes.string,
+    driverName: PropTypes.string,
+    trainerName: PropTypes.string,
+    sireName: PropTypes.string
+};
 
 export default Start;

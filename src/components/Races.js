@@ -1,5 +1,6 @@
 import React from 'react';
 import Race from './Race';
+import PropTypes from 'prop-types';
 
 function Races(props) {
     return (
@@ -20,6 +21,34 @@ function Races(props) {
             </tbody>
         </table>
     );
+}
+
+Races.propTypes = {
+    races: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string,
+        number: PropTypes.number,
+        name: PropTypes.string,
+        startTime: PropTypes.string,
+        starts: PropTypes.arrayOf(PropTypes.shape({
+            number: PropTypes.number,
+            horse: PropTypes.shape({
+                name: PropTypes.string,
+                trainer: PropTypes.shape({
+                    firstName: PropTypes.string,
+                    lastName: PropTypes.string
+                }),
+                pedigree: PropTypes.shape({
+                    father: PropTypes.shape({
+                        name: PropTypes.string
+                    })
+                })
+            }),
+            driver: PropTypes.shape({
+                firstName: PropTypes.string,
+                lastName: PropTypes.string
+            })
+        })).isRequired
+    })).isRequired
 }
 
 export default Races;
