@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import Games from './Games';
+import Dropdown from './Dropdown';
+import Races from './Races';
+import './App.css';
 
 const INITIAL_GAME_TYPE = 'V75';
-//const GAME_TYPES = [INITIAL_GAME_TYPE, 'V65', 'V64', 'V4'];
+const GAME_TYPES = [INITIAL_GAME_TYPE, 'V65', 'V64', 'V4'];
 
 class App extends Component {
   constructor() {
@@ -46,10 +48,8 @@ class App extends Component {
   render() {
     return (
       <>
-        {/*<select onChange={this.handleChange}>
-          {GAME_TYPES.map((gameType, i) => <option key={i} value={gameType}>{gameType}</option>)}
-        </select>*/}
-        <Games gameType='V75' games={this.state.games} />
+        <Dropdown handleChange={this.handleChange} values={GAME_TYPES} />
+        <Races races={this.state.games.flatMap(game => game.races)} />
       </>
     );
   }

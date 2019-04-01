@@ -1,0 +1,28 @@
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse
+}
+
+.Races-tr {
+    background-color: silver
+}
+
+.Race-tr {
+    background-color: silver
+}
+
+.Race-tr:hover {
+    background-color: darkgray
+}
+
+.Starts-tr {
+    background-color: gainsboro
+}
+
+.Start-tr {
+    background-color: gainsboro
+}
+
+.Start-tr:hover {
+    background-color: silver
+}
